@@ -1,8 +1,10 @@
 from django.shortcuts import render
-
+from .models import Title
 # Create your views here.
 
 
 def index(request):
 
-    return render(request,'mainapp/index.html')
+    title = Title.objects.get(category__name="main")
+    
+    return render(request,'mainapp/index.html',{'title': title})
