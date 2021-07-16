@@ -131,15 +131,3 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-from amocrm.v2 import tokens
-
-tokens.default_token_manager(
-        client_id="72ebb4dd-33bb-4f5e-a485-241dafff909a",
-        client_secret="IOU51BKcyDVELlzuTHj20nUpPtzcOVc0deQbYJJ5rCXZ5TEzF3LwBbLiQLmRiHr5",
-        subdomain="baqdauled",
-        redirect_url="https://studylink.kz/",
-        storage=tokens.FileTokensStorage(),  # by default FileTokensStorage
-    )
-tokens.default_token_manager.init(code="def502005e315f441cd0863d4e857dedf943b12286d5af9c45fb7338baf30dfd6ebf0a26f63029fa61f60473d6bd7b6d000468ffc17a7cdbdbd69a954cfd317398ff725a07022047c0241f471be4a859aaa963177072c1a681e1802707c859945f3081d0838d4d7c71895fe6d1599ea834ecf9e4e376e65ce1c2dbaf5c4d14a97045030f8de9ead877062590c60ad05ccde917cc41a5dca1cb691f80ff61698bf678a7b1ff2cad8d315770ae7a2f910fefdba82cb579eeb6c3d27a4b32cc96882b70eef57654b9a7aed6c60211b1376a5da312769683f685eefc2833640f937d25a24ad860e03be9652da8e863125daee816b56e36afe49b844813dc2e4d35befab4a89c65f0f4150957ee253f56948d076d8e3a83fd7bf12d4bd1bce8479793514c0a9e2327266f43697ad54d327b2d6a9c5ce268c200d13d86f4036269d0ae3d32924e5c09a79f17f4b32aaba5ec16c865fb8559c076de2878377154acfc4ef51e7c80709ad4462f5c4e2842e61b25074405b33b9f5cf3be58d6d6220f8cb70d833acd9b67ae56be4525a41be49c03a95d2b578f243dad4b2c7163d344e34778ec835fe0dc6cfbc3033527bb9b2e03074764527467a7ba61", skip_error=True)
-
-
