@@ -17,7 +17,7 @@ class Title(models.Model):
 
     def __str__(self):
 
-        return f"{self.name} in {self.category} category"
+        return f"{self.title} in {self.category} category"
 
     
 
