@@ -50,7 +50,7 @@
             <div class="container">
                 <div class="hero-block__row">
                     <div class="hero-block__text">
-                        <h1 class="hero-block__main-title _anim-items">{{title}}</h1>
+                        <h1 class="hero-block__main-title _anim-items">{{title.title}}</h1>
                         <div class="hero-block__boxes _anim-items">
                             <article class="hero-block__box   blue-background">
                                 <h3 class="hero-block-title">
@@ -110,13 +110,16 @@
         </div>
         <div class="gallery-block">
             <div class="container">
+                
                 <div class="gallery__grid">
-                    <a href="#" class="gallery__item _anim-items gallery__item--after" style="background: url({% static 'img/1.png' %}) center 100% no-repeat; background-size: cover;" >
+                    {% for block in blocks %}
+                    <a href="#" class="gallery__item _anim-items {{block.color}} gallery__item--after" {% if block.background %} style=" background: url({{block.background}}) center 100% no-repeat; background-size: cover;" {% endif %}>
                         <div class="gallery__item-content">
-                            <div class="gallery__item-icon"><i class="fas fa-play-circle"></i></div>
-                            <h3 class="gallery__item-text">КОРОТКОЕ ВИДЕО О НАС</h3>
+                            <div class="gallery__item-icon"><i class="{{block.icon}} fas fa-play-circle"></i></div>
+                            <h3 class="gallery__item-text">{{block.title}}</h3>
                         </div>
                     </a>
+                    {% endfor %}
                     <a class="gallery__item _anim-items gallery__item--purple">
                         <div class="gallery__item-content">
                             <div class="gallery__item-icon"><i class="fal fa-eject"></i></div>
