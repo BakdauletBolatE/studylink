@@ -1,0 +1,42 @@
+@import "main";
+@import "heroBlock";
+@import "header";
+@import "gift";
+@import "gallery";
+@import "utlis/utils";
+@import "second";
+@import "registration";
+@import "slide";
+@import "contacts";
+@import "footer";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+canvas{
+  outline: none; border: none;
+}
+canvas:hover{
+  outline: none; border: none;
+}
+canvas:focus{
+
+  outline: none; border: none;
+}
+html{
+  font-size: 62.5%;
+}
+body{
+  font-size: 1.4rem;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+.container{
+  max-width: 120rem;
+  padding: 0px 1rem;
+  margin:0 auto;
+  position: relative;
+}

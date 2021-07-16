@@ -1,0 +1,15 @@
+.blue-background{
+  background: #5F67EC;
+}
+.orange-background{
+  background: #FF9156;
+}
+.blue-sky-background{
+  background: #4DCCFF;
+  background-color: #4DCCFF;
+
+  &:hover{
+    background: #45b9e7;
+    background-color: #45b9e7;
+  }
+}
