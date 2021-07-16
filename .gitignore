@@ -33,6 +33,10 @@ wheels/
 pip-log.txt 
 pip-delete-this-directory.txt 
 
+.local.py
+local.py
+
+
 # Unit test / coverage reports 
 htmlcov/ 
 .tox/ 

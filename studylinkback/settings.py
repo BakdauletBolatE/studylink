@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+try:
+    from .local import *
+    DEBUG = True
+except ImportError as e:
+    DEBUG = False
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,10 +29,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vum*vk6&7+czijr&dul(hk$^9=g-s&#yj@)949f(v4i97#_ofe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 
-ALLOWED_HOSTS = ['188.225.44.207','127.0.0.1']
+
+if DEBUG:
+    ALLOWED_HOSTS = ['127.0.0.1']
+else:
+    ALLOWED_HOSTS = ['188.225.44.207']
 
 
 # Application definition
