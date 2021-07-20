@@ -2,30 +2,30 @@
 {% load static %}
 {% block 'content' %}
 <main class="main">
-    <div class="hero-block section__about-us">
+    <div class="hero-block hero-block--after section__about-us" style="background: url({% static 'img/england.webp' %}) right 20%  no-repeat; background-size: cover;">
         <div class="container">
             <div class="hero-block__row">
                 <div class="hero-block__text">
-                    <h1 class="hero-block__main-title _anim-items">{{title.title}}</h1>
+                    <h1 class="hero-block__main-title _anim-items hero-block__main-title--white">{{title.title}}</h1>
                     <div class="hero-block__boxes _anim-items">
                         <article class="hero-block__box   blue-background">
                             <h3 class="hero-block-title">
-                                Каждый день,
-                                <span>English Club</span>
+                                Программы Ielts
+                                <span>Для твоего уровня.</span>
                             </h3>
-                            <button class="hero-block-btn ">ПОДРОБНЕЕ</button>
+                            <button class="hero-block-btn ">Посмотреть</button>
                         </article>
                         <article class="hero-block__box">
                             <h3 class="hero-block-title">
-                                Вводный урок
-                                <span>Бесплатно!</span>
+                                Запись на первый
+                                <span>Урок Ielts!</span>
                             </h3>
-                            <button class="hero-block-btn">ПОДРОБНЕЕ</button>
+                            <button class="hero-block-btn"><script>!function(a,m,o,c,r,m){a[o+c]=a[o+c]||{setMeta:function(p){this.params=(this.params||[]).concat([p])}},a[o+r]=a[o+r]||function(f){a[o+r].f=(a[o+r].f||[]).concat([f])},a[o+r]({id:"810166",hash:"41d322174f75e1ce818f056d56d4c2df",locale:"ru"})}(window,0,"amo_forms_","params","load");</script><script id="amoforms_script_810166" async="async" charset="utf-8" src="https://forms.amocrm.ru/forms/assets/js/amoforms.js?1626783877"></script></button>
                         </article>
                     </div>
                 </div>
                 <div class="hero-block__image">
-                    <img width="200px" src="{% static 'img/maingirl.webp' %}" alt="">
+                    <img src="{% static 'img/maingirl.webp' %}" alt="">
                 </div>
             </div>
         </div>

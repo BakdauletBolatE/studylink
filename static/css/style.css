@@ -1,7 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+.hero-block {
+  position: relative;
+  padding-bottom: 5rem;
+}
+
 .hero-block__row {
   display: grid;
+  z-index: 1;
   height: 100vh;
   width: 100%;
   grid-template-columns: 1fr 1fr;
@@ -14,6 +20,7 @@
 }
 
 .hero-block__text {
+  z-index: 1;
   display: flex;
   height: 100%;
   overflow: hidden;
@@ -26,6 +33,7 @@
   text-transform: uppercase;
   font-size: 4rem;
   font-weight: 700;
+  margin-top: 4rem;
   text-align: center;
   margin-bottom: 6rem;
 }
@@ -43,6 +51,10 @@
   .hero-block__main-title {
     margin-top: 14rem;
   }
+}
+
+.hero-block__main-title--white {
+  color: white;
 }
 
 .hero-block__main-title._active {
@@ -110,6 +122,7 @@
   background: white;
   border-radius: 0.7rem;
   padding: 1.5rem 0rem;
+  font-size: 15px;
 }
 
 .hero-block__map {
@@ -131,6 +144,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 .hero-block__image img {
   width: 100%;
@@ -138,12 +152,23 @@
   object-fit: contain;
 }
 
+.hero-block--after::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+}
+
 .header {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 100;
   background: white;
 }
 
@@ -423,6 +448,13 @@
 
 .btn--large {
   padding: 1.8rem 3rem;
+}
+
+#amoforms_action_btn {
+  box-shadow: none !important;
+  height: auto !important;
+  line-height: normal;
+  margin: 0px !important;
 }
 
 .blue-background {
