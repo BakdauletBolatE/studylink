@@ -29,8 +29,8 @@
     align-items: center;
     text-align: center;
     transition: all .2s ease-in-out;
-    transform: translate(0px,100%);
-    opacity: 0;
+    // transform: translate(0px,100%);
+    // opacity: 0;
     &:nth-child(1){
         grid-row: span 2;
     }

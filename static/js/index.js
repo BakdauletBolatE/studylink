@@ -1,11 +1,40 @@
 import * as THREE from 'https://unpkg.com/three@0.119.0/build/three.module.js'
 import { OrbitControls } from 'https://unpkg.com/three@0.119.0/examples/jsm/controls/OrbitControls.js'
 
-// three js planet 
+
 document.addEventListener("DOMContentLoaded", function() {
+
+
+    const menuLinks = document.querySelectorAll('.header__nav-link[data-goto]');
+
+    if (menuLinks.length > 0) {
+        menuLinks.forEach(link => {
+            link.addEventListener('click', onMenuLinkClick);
+
+        })
+
+        function onMenuLinkClick(e){
+            e.preventDefault();
+            const menuLink = e.target;
+            if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
+                const gotoBlock = document.querySelector(menuLink.dataset.goto);
+                const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('.header').offsetHeight - 30; 
+                window.scrollTo(
+                    {
+                        top:gotoBlockValue,
+                        behavior: 'smooth'
+                    }
+                )
+            }
+        }
+    }
+
+    // three js planet 
+
     const element = document.getElementById('mapTravelId');
 
-const group = new THREE.Group();
+    if (element) {
+        const group = new THREE.Group();
     const scene = new THREE.Scene();
         scene.background = new THREE.Color( 0xffffff );
 
@@ -143,94 +172,17 @@ function animate(){
     renderer.render(scene,camera);
 }
 animate();
+    }
+
+    
 
 // three js planet end
 
-// gift events
-window.addEventListener('scroll', () => {
-    document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
-});
-
-const giftBody = document.querySelector('.gift-box__body');
-const wrapper = document.querySelector('.wrapper');
-
-giftBody.addEventListener('click', ()=>{
-    anime({
-        targets: '.gift-box__header',
-        keyframes: [
-            {
-                rotate: '30deg',
-            },
-            {
-                rotate: '-30deg'
-            },
-            {
-                rotate: '30deg'
-            },
-            {
-                rotate: '-30deg'
-            },
-            {
-                rotate: '0deg'
-            },
-            {
-                translateY: '-1000px'
-            },
-            {
-                opacity:'0%'
-            }
-        ],
-        duration: 2000,
-        easing: 'easeInOutQuad'
-    });
-
-    setTimeout(function(){
-        anime({
-            targets: '.gift-box__body',
-            keyframes: [
-                {
-                    translateY: '1000px'
-                },
-                {
-                    opacity:'0%'
-                }
-            ],
-            duration: 2000,
-            easing: 'easeInOutQuad'
-        })
-        },1000);
-
-        setTimeout(function(){
-
-            anime({
-                targets: '.gift-form',
-                keyframes: [
-                    {
-                        scale: [0,1]
-                    },
-                ],
-                duration: 500,
-            })
-            wrapper.classList.add('gift-modal');
-            const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
-            
-            const body = wrapper;
-            body.style.position = 'fixed';
-            body.style.top = `-${scrollY}`;
-        },1500)
-    })
-
-
-    let cleave = new Cleave('.phone-input', {
-        phone: true,
-        phoneRegionCode: 'KZ'
-    });
-    
-    // gift events end
 
     let button = document.getElementById('responsiveBtn');
     let links = document.querySelectorAll('.header__nav-item');
     let closeBtn = document.querySelector('.header__nav-close');
+    let header = document.querySelector('.header');
     let headerNav = document.querySelector('.header__nav');
     button.addEventListener('click', ()=>{
         links.forEach(link=>{
@@ -246,45 +198,6 @@ giftBody.addEventListener('click', ()=>{
             closeBtn.style.display = 'none';
         })
     })
-
-    
-    let animItems = document.querySelectorAll('._anim-items');
-    if (animItems.length > 0) {
-        window.addEventListener('scroll', animOnScroll);
-        function animOnScroll(params) {
-            animItems.forEach(animItem=>{
-                const animItemHeight = animItem.offsetHeight,
-                      animItemOffset = offset(animItem).top,
-                      animStart = 10;
-
-                let animItemPoint = window.innerHeight - animItemHeight / animStart;
-
-                if (animItemHeight > window.innerHeight ) {
-                    animItemPoint = window.innerHeight - window.innerHeight / animStart;
-                }
-
-                if ( (pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight) ) {
-                    animItem.classList.add('_active');
-                }
-                else{
-                    // if (animItem.classList.)
-                    // animItem.classList.remove('_active');
-                }
-            })
-
-            function offset(el) {
-                const rect = el.getBoundingClientRect(),
-                scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-                scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-                return {
-                    top: rect.top + scrollTop,
-                    left: rect.left + scrollLeft
-                }
-            }
-        }
-        animOnScroll();
-    }
 
 
     // Slider
@@ -328,6 +241,9 @@ giftBody.addEventListener('click', ()=>{
           el: '.swiper-scrollbar',
         },
       });
+
+
+
 });
 
 

@@ -6,6 +6,9 @@
   z-index: 2;
   background: white;
 }
+.header--shadow{
+  box-shadow: 2px 0px 11px rgba(0, 0, 0, 0.05);
+}
 #responsiveBtn{
   display: none;
   @media screen and (max-width:780px) {

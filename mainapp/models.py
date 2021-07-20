@@ -45,6 +45,9 @@ class Block(models.Model):
     def __str__(self):
 
         return f"{self.title}:  in {self.category} category"
+
+
+
     
 
 
