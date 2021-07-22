@@ -1,18 +1,12 @@
 .second-block{
-    margin-bottom: 15rem;
+    margin:8rem 0rem;
 }
 .second__title{
-    font-size: 4rem;
-    margin-bottom: 5rem;
-    text-transform: uppercase;
-    @media screen and (max-width:550px) {
-        margin-bottom: 3rem;
-        font-size: 3rem;
-    }
+    
 }
 .second__paragraph{
     font-size: 2.4rem;
-    max-width: 100rem;
+    max-width: 70rem;
     font-weight: 500;
     color:#323781;
     margin-bottom: 5rem;

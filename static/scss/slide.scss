@@ -1,16 +1,9 @@
 .slide-block{
-    margin:6rem 0rem;
+    margin:8rem 0rem;
     position: relative;
 }
 .slide__personal-text{
-    font-size: 3.5rem;
-    font-weight: 700;
-    @media screen and (max-width: 800px) {
-        font-size: 3.6rem;
-    }
-    @media screen and (max-width: 500px) {
-        font-size: 3rem;
-    }
+    
 }
 .slide__item{
     background: white;
@@ -25,8 +18,9 @@
 
 .slide__img{
     width: 100%;
-    height: 100%;
+    height: 35rem;
     object-fit: cover;
+
 }
 .slide__text{
     padding: 35px 30px 40px;

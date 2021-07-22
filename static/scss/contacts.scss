@@ -1,10 +1,10 @@
 .contacts-block{
-    margin:10rem 0;
+    margin:5rem 0rem;
 }
 .contacts__row{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap:1rem;
+    grid-gap:3rem;
 
     @media screen and (max-width:700px) {
         grid-template-columns: 1fr;

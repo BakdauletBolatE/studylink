@@ -1,16 +1,9 @@
 .registration-block{
     background: #FF9156;
-    padding: 15rem 0rem;
+    padding: 8rem 0rem;
 }
 .registration__title{
-    font-size: 4.6rem;
-    margin-bottom: 2rem;
-    @media screen and (max-width: 800px) {
-        font-size: 3.6rem;
-    }
-    @media screen and (max-width: 500px) {
-        font-size: 3rem;
-    }
+    
     & span{
         color:white;
     }
@@ -21,5 +14,14 @@
     grid-gap:1rem;
     @media screen and (max-width: 800px) {
         grid-template-columns: 1fr;
+    }
+}
+.registration__img{
+    max-width: 60%;
+    
+    & img {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
     }
 }

@@ -2,11 +2,20 @@
   position: fixed;
   width: 100%;
   top:0;
-  left:0;
+  right:0;
   z-index: 100;
+  color:white;
+  transition: 0.3s ease;
   background: white;
+  
+}
+.header--closed{
+  right: 85%;
 }
 .header--shadow{
+  transition: 0.3s ease;
+  color:black;
+  
   box-shadow: 2px 0px 11px rgba(0, 0, 0, 0.05);
 }
 #responsiveBtn{
@@ -59,4 +68,7 @@
   text-decoration: none;
   color:black;
   padding: 20px 20px;
+}
+.header__nav-link--shadow{
+  color:black;
 }

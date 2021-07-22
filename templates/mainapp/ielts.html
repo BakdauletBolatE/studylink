@@ -8,19 +8,19 @@
                 <div class="hero-block__text">
                     <h1 class="hero-block__main-title _anim-items hero-block__main-title--white">{{title.title}}</h1>
                     <div class="hero-block__boxes _anim-items">
-                        <article class="hero-block__box   blue-background">
-                            <h3 class="hero-block-title">
-                                Программы Ielts
-                                <span>Для твоего уровня.</span>
-                            </h3>
-                            <button class="hero-block-btn ">Посмотреть</button>
-                        </article>
                         <article class="hero-block__box">
                             <h3 class="hero-block-title">
                                 Запись на первый
                                 <span>Урок Ielts!</span>
                             </h3>
                             <button class="hero-block-btn"><script>!function(a,m,o,c,r,m){a[o+c]=a[o+c]||{setMeta:function(p){this.params=(this.params||[]).concat([p])}},a[o+r]=a[o+r]||function(f){a[o+r].f=(a[o+r].f||[]).concat([f])},a[o+r]({id:"810166",hash:"41d322174f75e1ce818f056d56d4c2df",locale:"ru"})}(window,0,"amo_forms_","params","load");</script><script id="amoforms_script_810166" async="async" charset="utf-8" src="https://forms.amocrm.ru/forms/assets/js/amoforms.js?1626783877"></script></button>
+                        </article>
+                        <article class="hero-block__box   blue-background">
+                            <h3 class="hero-block-title">
+                                Программы Ielts
+                                <span>Для твоего уровня.</span>
+                            </h3>
+                            <button class="hero-block-btn ">Посмотреть</button>
                         </article>
                     </div>
                 </div>
@@ -30,10 +30,89 @@
             </div>
         </div>
     </div>
+    <div class="slideWithActive">
+        <div class="container">
+            <div class="slideWithActive__row">
+                <div class="slideWithActive__title main-title">
+                    Почему нас выбирает ?
+                </div>
+                <div class="swiper-container slide-effects">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide swiper-slide-effect">
+                        <div class="slideWithActive__item">
+                            <div class="slideWithActive__icon">
+                                <i class="fad fa-alarm-clock"></i>
+                            </div>
+                            <p class="slideWithActive__text">
+                                Занятия длятся <strong>80 минут</strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-effect">
+                        <div class="slideWithActive__item">
+                            <div class="slideWithActive__icon">
+                                <i class="fad fa-snowflakes"></i>
+                            </div>
+                            <p class="slideWithActive__text">
+                                Заморозка баланса <strong>на любой срок</strong> 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-effect">
+                        <div class="slideWithActive__item">
+                            <div class="slideWithActive__icon">
+                                <i class="far fa-users-class"></i>
+                            </div>
+                            <p class="slideWithActive__text">
+                                В группе в среднем <strong>6-8 студентов</strong> 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-effect">
+                        <div class="slideWithActive__item">
+                            <div class="slideWithActive__icon">
+                                <i class="fad fa-gift"></i>
+                            </div>
+                            <p class="slideWithActive__text">
+                                По акции цены от <strong>16.500 KZT</strong> вместо 27500 KZT
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-effect">
+                        <div class="slideWithActive__item">
+                            <div class="slideWithActive__icon">
+                                <i class="fad fa-calendar-star"></i>
+                            </div>
+                            <p class="slideWithActive__text">
+                                <strong>6 раз</strong> в неделю, 3 из них с носителем
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide swiper-slide-effect">
+                        <div class="slideWithActive__item">
+                            <div class="slideWithActive__icon">
+                                <i class="fad fa-poll-people"></i>
+                            </div>
+                            <p class="slideWithActive__text">
+                                Каждый день <strong>English Club</strong> 
+                            </p>
+                        </div>
+                    </div>
+                
+                </div>
+                
+                    
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="second-block section__programs">
         <div class="container">
             <div class="second__row">
-                <h2 class="second__title">Программы обучения</h2>
+                <h2 class="second__title main-title">Программы обучения</h2>
                 <p class="second__paragraph">Методисты школы Study Link разработали больше десятка программ. Выбирайте тот, что подходит вам, и достигайте цели быстрее.</p>
                 <div class="second__grid">
                     <div class="second__item orange-background _anim-items">
@@ -48,107 +127,56 @@
                         17+ <br>
                         лет
                     </div>
-                    <div class="second__item second__item--offer _anim-items">
+                    <a href="#" class="_goto-links second__item second__item--offer" data-goto=".section__registration">
                         Запишитесь прямо сейчас!
-                    </div>
+                    </a>
                 </div>
                 
             </div>
         </div>
     </div>
+    
     <div class="gallery-block">
         <div class="container">
-            
+            <div class="main-title">Что мы делаем</div>
             <div class="gallery__grid">
                 {% for block in blocks %}
-                <a href="#" class="gallery__item _anim-items {{block.color}} gallery__item--after" {% if block.background %} style=" background: url({{block.background.url}}) center 100% no-repeat; background-size: cover;" {% endif %}>
+                <a href="#" class="gallery__item _anim-items {{block.color}} {% if block.background %} gallery__item--after {% endif %}" {% if block.background %} style=" background: url({{block.background.url}}) center 100% no-repeat; background-size: cover;" {% endif %}>
                     <div class="gallery__item-content">
                         <div class="gallery__item-icon"><i class="{{block.icon}}"></i></div>
                         <h3 class="gallery__item-text">{{block.title}}</h3>
                     </div>
                 </a>
                 {% endfor %}
-                <a class="gallery__item _anim-items gallery__item--purple">
-                    <div class="gallery__item-content">
-                        <div class="gallery__item-icon"><i class="fal fa-eject"></i></div>
-                        <h3 class="gallery__item-text">Методика показавшая свою эффективность</h3>
-                    </div>
-                </a>
-                <a class="gallery__item gallery__item--after _anim-items" style="background: url({% static 'img/2.png' %}) center 100% no-repeat; background-size: cover;">
-                    <div class="gallery__item-content">
-                        <div class="gallery__item-icon"></div>
-                        <h3 class="gallery__item-text">Преподаватели высшей квалификации</h3>
-                    </div>
-                </a>
-                <a class="gallery__item gallery__item--after _anim-items" style="background: url({% static 'img/3.png' %}) center 100% no-repeat; background-size: cover;">
-                    <div class="gallery__item-content">
-                        <div class="gallery__item-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                        <h3 class="gallery__item-text">6 раз в неделю, 3 из них с носителем языка</h3>
-                    </div>
-                </a>
-                <a class="gallery__item gallery__item--orange _anim-items">
-                    <div class="gallery__item-content">
-                        <div class="gallery__item-icon"><i class="far fa-calendar-alt"></i></div>
-                        <h3 class="gallery__item-text">24 года успешной работы в сфере образования</h3>
-                    </div>
-                </a>
-                <a class="gallery__item gallery__item--blue _anim-items">
-                    <div class="gallery__item-content">
-                        <div class="gallery__item-icon"></div>
-                        <h3 class="gallery__item-text">24 года успешной работы в сфере образования</h3>
-                    </div>
-                </a>
+                
             </div>
         </div>
     </div>
    
     <div class="slide-block section__teacher">
         <div class="container">
-            <div class="slide__personal-text">Наши преподаватели</div>
+            <div class="slide__personal-text main-title">Наши преподаватели</div>
             <!-- Slider main container -->
-                <div class="swiper-container">
+                <div class="swiper-container main-slide">
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
                     <!-- Slides -->
+                    {% for teacher in teachers %}
                     <div class="swiper-slide">
                         <div class="slide__item ">
-                            <img class="slide__img" src="{% static 'img/1.png' %}" alt="">
+                            <img class="slide__img" src="{{teacher.img.url}}" alt="">
                             <div class="slide__text">
-                                <h2 class="slide__title">Mr. Darkhan </h2>
-                                <h3 class="slide__level"><span><i class="fas fa-briefcase"></i></span> Стаж: 4 года</h3>
-                                <h3 class="slide__level"><span><i class="fas fa-graduation-cap"></i></span> Образования: Высшее педагогическое</h3>
-                                <a class="slide__link" href="">
+                                <h2 class="slide__title">{{teacher.name}}</h2>
+                                <h3 class="slide__level"><span><i class="fas fa-briefcase"></i></span> Стаж: {{teahcer.experiense}}</h3>
+                                <h3 class="slide__level"><span><i class="fas fa-graduation-cap"></i></span> Образования: {{teacher.education}}</h3>
+                                <a class="slide__link" href="{{teacher.get_absolute_url}}">
                                     <h2><span><i class="fas fa-check-square"></i></span> ЗАПИСАТЬСЯ</h2>
                                 </a>
                             </div>
                         </div> 
                     </div>
-                    <div class="swiper-slide">
-                        <div class="slide__item ">
-                            <img class="slide__img" src="{% static 'img/1.png' %}" alt="">
-                            <div class="slide__text">
-                                <h2 class="slide__title">Alikhan </h2>
-                                <h3 class="slide__level"><span><i class="fas fa-briefcase"></i></span> Стаж: 4 года</h3>
-                                <h3 class="slide__level"><i class="fas fa-graduation-cap"></i></span> Образования: Высшее педагогическое</h3>
-                                <a class="slide__link" href="">
-                                    <h2><span><i class="fas fa-check-square"></i></span> ЗАПИСАТЬСЯ</h2>
-                                </a>
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="slide__item ">
-                            <img class="slide__img" src="{% static 'img/1.png' %}" alt="">
-                            <div class="slide__text">
-                                <h2 class="slide__title">Mr. Darkhan </h2>
-                                <h3 class="slide__level"><span><i class="fas fa-briefcase"></i></span> Стаж: 4 года</h3>
-                                <h3 class="slide__level"><i class="fas fa-graduation-cap"></i></span> Образования: Высшее педагогическое</h3>
-                                <a class="slide__link" href="">
-                                    <h2><span><i class="fas fa-check-square"></i></span> ЗАПИСАТЬСЯ</h2>
-                                </a>
-                            </div>
-                        </div> 
-                    </div>
+                    {% endfor %}
+                   
                     </div>
                     <div class="swiper-pagination"></div>
 
@@ -156,24 +184,9 @@
                                                             
         </div> 
     </div>
-    <div class="registration-block">
-        <div class="container">
-            <div class="registration__grid">
-                <div class="registration__text">
-                    <h2 class="registration__title">
-                        Регистрация на 
-                        <span>Бесплатный урок</span>    
-                    </h2>
-                </div>
-                
-                <div class="registration__form">
-                    <script>!function(a,m,o,c,r,m){a[o+c]=a[o+c]||{setMeta:function(p){this.params=(this.params||[]).concat([p])}},a[o+r]=a[o+r]||function(f){a[o+r].f=(a[o+r].f||[]).concat([f])},a[o+r]({id:"810133",hash:"ef4c12b8eeb5662757880cf2e72bcade",locale:"ru"})}(window,0,"amo_forms_","params","load");</script><script id="amoforms_script_810133" async="async" charset="utf-8" src="https://forms.amocrm.ru/forms/assets/js/amoforms.js?1626783832"></script>
-                </div>
-               
-            </div>
-            
-        </div>
-    </div>        
+
+   
+        
     <div class="contacts-block section__contacts">
         <div class="container">
             <div class="contacts__row">

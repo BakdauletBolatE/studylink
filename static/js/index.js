@@ -3,9 +3,27 @@ import { OrbitControls } from 'https://unpkg.com/three@0.119.0/examples/jsm/cont
 
 
 document.addEventListener("DOMContentLoaded", function() {
-
-
-    const menuLinks = document.querySelectorAll('.header__nav-link[data-goto]');
+    const linksL = document.querySelectorAll('.header__nav-link');
+    document.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            document.querySelector('.header').classList.add('header--shadow');
+            if (linksL.length>0){
+                linksL.forEach(link=>{
+                    link.classList.add('header__nav-link--shadow');
+                })
+            }
+            
+        }
+        else{
+            document.querySelector('.header').classList.remove('header--shadow');
+            if (linksL.length>0){
+                linksL.forEach(link=>{
+                    link.classList.remove('header__nav-link--shadow');
+                })
+            }
+        }
+    })
+    const menuLinks = document.querySelectorAll('._goto-links[data-goto]');
 
     if (menuLinks.length > 0) {
         menuLinks.forEach(link => {
@@ -25,6 +43,11 @@ document.addEventListener("DOMContentLoaded", function() {
                         behavior: 'smooth'
                     }
                 )
+                if (mobileMenu.classList.contains('mobileMenu--opened')){
+                    header.classList.remove('header--closed');
+                    wrapper.classList.remove('body--block');
+                    mobileMenu.classList.remove('mobileMenu--opened');
+                }
             }
         }
     }
@@ -36,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (element) {
         const group = new THREE.Group();
     const scene = new THREE.Scene();
-        scene.background = new THREE.Color( 0xffffff );
+        
 
     const camera = new THREE.PerspectiveCamera(
         75,
@@ -59,7 +82,8 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     const renderer = new THREE.WebGL1Renderer(
         {
-            antialias: true
+            antialias: true,
+            alpha: true
         }
     )
 
@@ -180,32 +204,25 @@ animate();
 
 
     let button = document.getElementById('responsiveBtn');
-    let links = document.querySelectorAll('.header__nav-item');
-    let closeBtn = document.querySelector('.header__nav-close');
     let header = document.querySelector('.header');
-    let headerNav = document.querySelector('.header__nav');
+    let wrapper = document.querySelector('body');
+    let mobileMenu = document.querySelector('.mobileMenu');
     button.addEventListener('click', ()=>{
-        links.forEach(link=>{
-            link.style.display = 'block';
-            headerNav.classList.add('header__nav--active');
-        })
-        closeBtn.style.display = 'block';
+        header.classList.toggle('header--closed');
+        header.classList.remove('header--shadow');
+        wrapper.classList.toggle('body--block');
+        mobileMenu.classList.toggle('mobileMenu--opened');
     })
-    closeBtn.addEventListener('click', ()=>{
-        links.forEach(link=>{
-            link.style.display = 'none';
-            headerNav.classList.remove('header__nav--active');
-            closeBtn.style.display = 'none';
-        })
-    })
+    
 
 
     // Slider
-
-    const swiper = new Swiper('.swiper-container', {
+    
+    const swiper = new Swiper('.main-slide', {
         // Optional parameters
         direction: 'horizontal',
         loop: true,
+        
         breakpoints: {
             // when window width is >= 320px
             320: {
@@ -242,7 +259,31 @@ animate();
         },
       });
 
-
+      const swiper2 = new Swiper('.slide-effects', {
+        direction: 'horizontal',
+        loop: true,
+        breakpoints: {
+            // when window width is >= 320px
+            320: {
+                slidesPerView: 2,
+            },
+            // when window width is >= 480px
+            480: {
+                slidesPerView: 2,
+            },
+            // when window width is >= 640px
+            640: {
+              slidesPerView: 2,
+            },
+            1000: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            }
+          },
+        spaceBetween: 30,
+        centeredSlides: true,
+        
+    })
 
 });
 

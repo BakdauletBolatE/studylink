@@ -1,0 +1,27 @@
+{% extends 'layouts/app.html' %}
+{% load static %}
+{% block 'content' %}
+
+<div class="main">
+    <div class="teacher">
+        <div class="container">
+            <div class="teacher__row">
+                <div class="teacher__inf">
+                    <div class="teacher__img">
+                        <img src="{{teacher.img.url}}" alt="">
+                    </div>
+                    <h2 class="teacher__name teacher__title">{{teacher.name}}</h2>
+                    <h3 class="teacher__experiense teacher__p"><span><i class="fas fa-briefcase"></i></span> {{teacher.experiense}}</h3>
+                    <h3 class="teacher__eduaction teacher__p"><i class="fas fa-graduation-cap"></i></span> {{teacher.education}}</h3>
+                    <p class="teacher__p"><i class="fas fa-user"></i></span>   {{teacher.description}}</p>
+                </div>
+                <div class="teacher__form">
+                    <h2 class="teacher__request">Записаться на преподавателя</h2>
+                    <script>!function(a,m,o,c,r,m){a[o+c]=a[o+c]||{setMeta:function(p){this.params=(this.params||[]).concat([p])}},a[o+r]=a[o+r]||function(f){a[o+r].f=(a[o+r].f||[]).concat([f])},a[o+r]({id:"810133",hash:"ef4c12b8eeb5662757880cf2e72bcade",locale:"ru"})}(window,0,"amo_forms_","params","load");</script><script id="amoforms_script_810133" async="async" charset="utf-8" src="https://forms.amocrm.ru/forms/assets/js/amoforms.js?1626783832"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
