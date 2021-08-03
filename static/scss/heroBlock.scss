@@ -41,6 +41,12 @@
     margin-top:14rem;
   }
 }
+.hero-block-btn{
+  & a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
 .hero-block__main-title--white{
   color:white
 }
