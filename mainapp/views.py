@@ -15,6 +15,24 @@ def index(request):
     }
     return render(request,'mainapp/index.html',data)
 
+def teanegerView(request):
+
+    teachers = Teacher.objects.all()
+    data = {
+        'teachers':teachers,
+    }
+
+    return render(request,'mainapp/1316.html',data)
+
+def intensiveView(request):
+
+    teachers = Teacher.objects.all()
+    data = {
+        'teachers':teachers,
+    }
+
+    return render(request,'mainapp/intensive.html',data)
+
 def ieltsView(request):
 
     title = Title.objects.get(category__name="ielts")

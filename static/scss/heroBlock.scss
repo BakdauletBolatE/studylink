@@ -134,6 +134,17 @@
   }
 }
 
+.hero-block__image2{
+  & img {
+    width: 90%;
+    height: 90%;
+  }
+
+  @media screen and (max-width:550px) {
+    display: block;
+  }
+}
+
 .hero-block--after::after{
   position: absolute;
   top:0;
