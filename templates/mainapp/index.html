@@ -145,7 +145,7 @@ Study Link - Школа английского языка
             <div class="main-title">Что мы делаем</div>
             <div class="gallery__grid">
                 {% for block in blocks %}
-                <a href="#" class="gallery__item _anim-items {{block.color}} {% if block.background %} gallery__item--after {% endif %}" {% if block.background %} style=" background: url({{block.background.url}}) center 100% no-repeat; background-size: cover;" {% endif %}>
+                <a href="{{block.url_to}}" class="gallery__item _anim-items {{block.color}} {% if block.background %} gallery__item--after {% endif %}" {% if block.background %} style=" background: url({{block.background.url}}) center 100% no-repeat; background-size: cover;" {% endif %}>
                     <div class="gallery__item-content">
                         <div class="gallery__item-icon"><i class="{{block.icon}}"></i></div>
                         <h3 class="gallery__item-text">{{block.title}}</h3>
