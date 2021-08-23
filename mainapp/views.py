@@ -1,5 +1,13 @@
 from django.shortcuts import render
 from .models import Block, Teacher, Title
+from .forms import LeedForm
+import requests
+from django.shortcuts import redirect
+import json
+import telebot
+from django.conf import settings
+from django.contrib import messages
+
 # Create your views here.
 
 
@@ -48,9 +56,69 @@ def ieltsView(request):
 def teacherView(request, pk):
 
     teacher = Teacher.objects.get(id=pk)
-
-    data = {
-        'teacher': teacher
+    form = LeedForm()
+    data = {    
+        'teacher': teacher,
+        'form':form
     }
 
     return render(request,'mainapp/teacherProfile.html',data)
+
+
+def leedAddView(request):
+
+
+    if request.method == 'POST':
+        form = LeedForm(request.POST)
+
+        data = {
+            "fullName": request.POST.get('fullName'),
+            "agentPhone": request.POST.get('numberPhone'),
+            "description": request.POST.get('description'),
+            "teacher": request.POST.get('teacherName')
+        }
+
+        dataJson = json.dumps(data)
+        print(dataJson) 
+        headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+
+        res = requests.post('https://studylink.t8s.ru/Api/V2/AddStudyRequest',data=dataJson,headers=headers)
+
+        # print(res)
+
+        
+
+        if form.is_valid():
+            TOKEN = settings.TELEGRAM_BOT_AUTH_KEY
+            GROUPID = settings.GROUPID
+            form.save(commit=False)
+            form.teacher = request.POST.get('teacher')
+            created_lead = form.save()
+            messages.info(request, created_lead.fullName)
+            if created_lead.fullName is None:
+                fullName = ""
+            else:
+                fullName = f"Имя: {created_lead.fullName}"
+
+            if created_lead.teacher is None:
+                teacherName = ''
+            else:
+                teacherName = f"Учитель: {created_lead.teacher.name}"
+            message_text = f"""У нас новая заявка №{created_lead.id}\nТип заявки - {created_lead.description}\n{fullName}\nТелефон номера: {created_lead.numberPhone}\n{teacherName}"""
+            bot = telebot.TeleBot(TOKEN, parse_mode=None)
+
+            bot.send_message(GROUPID,message_text)
+            
+        else:
+            print('Ошибка')
+            messages.info(request, "При отправка ошибка")
+            return redirect('thankYouUrl')
+
+        return redirect('thankYouUrl')
+
+
+def thankYouPageView(request):
+
+    return render(request,'thank-you.html')
+
+        

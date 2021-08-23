@@ -7,7 +7,7 @@
     padding: 2rem 3rem; 
     margin-bottom: 2rem;
     width: 100%;
-    font-size: 1.4rem;
+    font-size: 2rem;
     border:none;
     border-bottom:1px solid #5F67EC;
 
@@ -15,6 +15,13 @@
         outline: none;
         // box-shadow: 0px 0px 10px #4d54d148;
     }
+}
+.form-education{
+    max-width: 60rem;
+    @media screen and (max-width:550px){
+        max-width:100%;
+    }
+    margin-top: 4rem;
 }
 #amofroms_main_wrapper{
     margin: 0 auto!important;
@@ -29,6 +36,9 @@
 .form-style-2{
     border-radius: .7rem;
     border-bottom: none;
+}
+.form-style-3{
+    background-color: #f2f2f2;
 }
 .unable-m{
     margin:0;

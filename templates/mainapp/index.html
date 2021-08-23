@@ -131,12 +131,21 @@ Study Link - Школа английского языка
                         17+ <br>
                         лет
                     </div>
-                    <a href="#" class="_goto-links second__item second__item--offer" data-goto=".section__registration">
-                        Запишитесь прямо сейчас!
-                    </a>
+                    <div></div>
+                  
                 </div>
-                
+                <img class="second__item-img" src="{% static 'img/icons/business-3d-answer.png' %}" alt="">
             </div>
+            <form action="{% url 'addLead' %}" method="post" class="form-education">
+                {% csrf_token %}
+                <h1 class="smile text-center">
+                    &#128105;&#8205;&#128187;
+                </h1>
+                <h2 class="second__paragraph text-center">Оставляйте заявку и мы подберем вам программы обучения бесплатно</h2>
+                <input name="numberPhone" placeholder="+7" type="text" id="input-edu" class="form-input">
+                <input type="hidden" name="description" value="Заявка на консультацию по программам обучения">
+                <button class="btn"><i class="fas fa-paper-plane"></i>  Получить бесплатно</button>
+            </form>
         </div>
     </div>
     
@@ -190,21 +199,24 @@ Study Link - Школа английского языка
     </div>
 
    
-    <div class="registration-block section__registration">
+    <div class="registration-block section__registration"style="background: url({% static 'img/icons/3d-stripy-financial-growth.webp' %})no-repeat right top; background-size: cover">
         <div class="container">
             <div class="registration__grid">
                 <div class="registration__text">
                     <h2 class="registration__title main-title">
-                        Регистрация на <br>
+                        <span>Регистрация на </span><br>
                         <span>Бесплатный урок</span>    
                     </h2>
-                    <div class="registration__img">
-                        <img src="{% static 'img/gift.webp' %}" alt="">
-                    </div>
                 </div>
                 
                 <div class="registration__form">
-                    <script>!function(a,m,o,c,r,m){a[o+c]=a[o+c]||{setMeta:function(p){this.params=(this.params||[]).concat([p])}},a[o+r]=a[o+r]||function(f){a[o+r].f=(a[o+r].f||[]).concat([f])},a[o+r]({id:"810133",hash:"ef4c12b8eeb5662757880cf2e72bcade",locale:"ru"})}(window,0,"amo_forms_","params","load");</script><script id="amoforms_script_810133" async="async" charset="utf-8" src="https://forms.amocrm.ru/forms/assets/js/amoforms.js?1626783832"></script>
+                    <form action="{% url 'addLead' %}" method="post" >
+                        {% csrf_token %}
+                        <input class='form-input form-style-2' type="text" value="+7" name="numberPhone" id="phone-mask">
+                        <input class='form-input form-style-2' type="text" name="fullName" placeholder="Полное имя">
+                        <input type="hidden" name="description" value="Регистрация на бесплатный урок(пробный)">
+                        <button class="btn btn-purple">Получить пробный урок</button>
+                    </form>
                 </div>
                
             </div>

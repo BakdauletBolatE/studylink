@@ -1,0 +1,22 @@
+{% extends 'layouts/app.html' %}
+{% load static %}
+{% block 'content' %}
+
+<div class="main">
+   <div class="thank-you-page">
+       <div class="container">
+           <div class="thank-you-page-img">
+               <img src="{% static 'img/icons/business-3d-thumb-up-man-close-up-2.webp' %}" alt="">
+           </div>
+           <p class="thank-you-page-p">В скором времени мы свяжемся с вами, мы верим что вы поступите к нам </p>
+           {% if messages %}
+           {% for message in messages %}
+           <button class="btn thank-you-page-btn">Cпасибо за заявку {{message}}!</button>
+           {% endfor %}
+           {% endif %}
+           <a class="thank-you-page-a" href="/">Вернуться к сайту</a>
+       </div>
+   </div>
+</div>
+
+{% endblock %}

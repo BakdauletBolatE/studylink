@@ -150,11 +150,16 @@ STATIC_ROOT = BASE_DIR / 'static__collected'
 
 MEDIA_URL = '/media/'
 
+TELEGRAM_BOT_AUTH_KEY = '1839295884:AAH65ue1E9gh7-GoC30zDATmiazk85GIHNo'
+
+GROUPID = '-1001238199512'
+
 MEDIA_ROOT = BASE_DIR / 'media'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

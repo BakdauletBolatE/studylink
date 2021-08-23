@@ -64,6 +64,16 @@ class Teacher(models.Model):
 
         return reverse('teacherUrl', args=(str(self.id)))
 
+class Leeds(models.Model):
+
+    numberPhone = models.CharField(max_length=255)
+    fullName = models.CharField(max_length=255,null=True,blank=True)
+    description = models.CharField(max_length=255,null=True,blank=True)
+    teacher = models.ForeignKey(Teacher, null=True, blank=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.numberPhone}: {self.fullName}"
+
 
 
 
