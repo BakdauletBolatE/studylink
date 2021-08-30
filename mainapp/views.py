@@ -73,7 +73,7 @@ def leedAddView(request):
 
         data = {
             "fullName": request.POST.get('fullName'),
-            "agentPhone": request.POST.get('numberPhone'),
+            "phone": request.POST.get('numberPhone'),
             "description": request.POST.get('description'),
             "teacher": request.POST.get('teacherName')
         }
