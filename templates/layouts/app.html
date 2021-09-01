@@ -12,14 +12,13 @@
     <meta property="og:title" content="Study Link - Школа английского языка">
     <meta property="og:description" content="Школа английского языка">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://static.tildacdn.com/tild3836-6464-4662-a662-633235353336/Logo.png">
     <link rel="icon" href="{% static 'img/favlogo.png' %}" type="image/x-icon">
     <link rel="canonical" href="https://slink.kz">
     <
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <meta name="facebook-domain-verification" content="lk9u0fwukm2asvh72zuyt29g0fcssv" />
+
     <!-- Facebook Pixel Code -->
 <script>
     !function(f,b,e,v,n,t,s)
@@ -133,25 +132,6 @@
         
     </div>
 </div>
-<script id='sphere-vertex-shader' type='x-shader/x-vertex'>
-    varying vec2 vUv;
-
-    void main() {
-        vUv = uv;
-
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-    }
-</script>
-<script id='sphere-fragment-shader' type='x-shader/x-fragment'>
-    varying vec2 vUv;
-    uniform float time;
-
-    void main() {
-    float dash = sin(vUv.x*50. + time);
-    if (dash <0.) discard;
-       gl_FragColor = vec4(vUv.x,1.,2.5,5.);
-    }
-</script>
 <script type="text/javascript">
     (function(d, w, s) {
       var widgetHash = '2yvoxnxevfobmd2k7ulm', gcw = d.createElement(s); gcw.type = 'text/javascript'; gcw.async = true;
@@ -161,7 +141,7 @@
   </script> 
 <script src="https://unpkg.com/imask"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script type="module" src="{% static 'js/index.js' %}"></script>
+<script src="{% static 'js/index.js' %}"></script>
 
 </body>
 </html>
