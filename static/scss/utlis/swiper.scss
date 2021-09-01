@@ -4,6 +4,7 @@
     
   }
   .slide-effects{
+    overflow: hidden;
     padding: 5rem 0rem;
   }
   .swiper-pagination-bullet{
@@ -15,5 +16,6 @@
   }
 
 .main-slide{
+  overflow: hidden;
   padding-bottom: 5rem;
 }

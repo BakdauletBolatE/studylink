@@ -1,0 +1,39 @@
+.slideWithActive{
+    margin:8rem 0rem;
+}
+.slideWithActive__icon{
+    font-size: 8rem;
+    text-align: center;
+    color:white;
+}
+.slideWithActive__text{
+    color:white;
+    text-align: center;
+    margin-top: 1.2rem;
+
+    & strong{
+        color:#FFF7B4;
+    }
+}
+.slideWithActive__item{
+    padding: 0rem 2rem;
+}
+.swiper-slide-effect.swiper-slide-active{
+    transform: scale(1.5);
+    transition: 0.3s ease;
+    background-color: #4DCCFF;
+    background-color: #5F67EC;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.062);
+    z-index: 3;
+}
+.swiper-slide{
+    transition: 0.3s ease;
+}
+.swiper-slide-effect{
+    padding: 2rem 0rem;
+    border-radius: .7rem;
+    position: relative;
+    z-index: 2;
+    background-color: #FF9156;
+    
+}

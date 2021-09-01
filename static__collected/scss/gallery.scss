@@ -1,0 +1,105 @@
+.gallery-block{
+    margin:10rem 0px;
+}
+.gallery__grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(32rem,1fr)); 
+    grid-gap:2rem;
+    grid-auto-rows: 20rem;
+    grid-auto-flow: dense;
+}
+.gallery__item-icon{
+    font-size: 5.5rem;
+    margin-bottom: 1.4rem;
+}
+.gallery__item-text{
+    display: block;
+    max-width: 90%;
+    margin: 0 auto;
+}
+.gallery__item{
+    text-decoration: none;
+    border-radius: .7rem;
+    overflow: hidden;
+    background: white;
+    font-size: 1.6rem;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all .2s ease-in-out;
+    // transform: translate(0px,100%);
+    // opacity: 0;
+    &:nth-child(1){
+        grid-row: span 2;
+    }
+    &:nth-child(3){
+        grid-row: span 2;
+    }
+    &:nth-child(4){
+        grid-row: span 2;
+    }
+
+    @media screen and(max-width:800px) {
+        font-size: 1.6rem;
+    }
+    @media screen and(max-width:500px) {
+        font-size: 1.4rem;
+    }
+
+}
+
+.gallery__item._active{
+    transition: all .3s ease-in-out;
+    transform: translate(0px, 0px);
+    opacity: 1;
+}
+
+.gallery__item--after{
+    position: relative;
+    transition: 0.3s ease;
+
+    &:hover{
+        transition: 0.3s ease;
+        &::after{
+            background: rgba(0, 0, 0, 0.9)
+        }
+    }
+    &::after{
+        transition: 0.3s ease;
+        content: "";
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4)
+    }
+}
+.gallery__item--purple{
+    color:white;
+    background-color: #5F67EC;
+    &:hover{
+        background-color: darken(#5F67EC,5);
+    }
+}
+.gallery__item--blue{
+    background-color: #4DCCFF;
+    color:white;
+    &:hover{
+        background-color: darken(#4DCCFF,5);
+    }
+}
+.gallery__item--orange{
+    color:white;
+    background-color: #FF9156;
+    &:hover{
+        background-color: darken(#FF9156,5);
+    }
+}
+
+.gallery__item-content{
+    z-index: 2;
+    position: relative;   
+}

@@ -88,6 +88,7 @@
             spaceBetween: 20
             }
           },
+          slidesPerView: 3,
         // // If we need pagination
         pagination: {
           el: '.swiper-pagination',
@@ -126,6 +127,7 @@
                 spaceBetween: 30,
             }
           },
+        slidesPerView: 3,
         spaceBetween: 30,
         centeredSlides: true,
         
@@ -136,14 +138,14 @@
             mask: '+7\\(000)-000-00-00'
     };
     var mask = IMask(maskPhoneNumber, maskOptions);
+
+    var maskPhoneNumber99 = document.getElementById('phone-mask-99');
+    var mask99 = IMask(maskPhoneNumber99, maskOptions);
     
     let maskMaskInput = document.getElementById('input-edu');
 
     let eduMask = IMask(maskMaskInput, maskOptions)
 
-    maskPhoneNumber.addEventListener('input', ()=>{
-        console.log(mask);
-    })
 
 
 

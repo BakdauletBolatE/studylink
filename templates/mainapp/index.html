@@ -11,8 +11,34 @@ Study Link - Школа английского языка
         <div class="container">
             <div class="hero-block__row">
                 <div class="hero-block__text">
-                    <h1 class="hero-block__main-title _anim-items">{{title.title}}</h1>
-                    <div class="hero-block__boxes _anim-items">
+                    <div class="hero-block__texts__row hero-block__texts__row-extra ">
+                    
+                        <h1 class="hero-block__main-title-extra">Скидка <br> 3 дня <br> 50 мест Быстрее ! </h1>
+                        <div><img class="extra-img" src="{% static 'img/action.webp' %}" alt=""></div>
+                        
+                     
+                    </div>
+                    <div class="hero-block__texts__row">
+                        <h1 class="hero-block__diamond">
+                            💰
+                            </h1>
+                            <h1 class="hero-block__main-title _anim-items">Скидка <br>
+                            3 дня <br>
+                             50 мест<br>
+                             Быстрее ! </h1>
+                    </div>
+                    
+                    <article class="hero-block__box   blue-background">
+                        <form action="{% url 'addLead' %}" method="post" >
+                            {% csrf_token %}
+                            <input class='form-input form-style-2' type="text" value="+7" name="numberPhone" id="phone-mask-99">
+                            <input class='form-input form-style-2' type="text" name="fullName" placeholder="Полное имя">
+                            <input type="hidden" name="description" value="9 990 тенге - Заявка на скидку">
+                            <button class="btn">Отправить заявку</button>
+                        </form>
+                       
+                    </article>
+                    <!-- <div class="hero-block__boxes _anim-items">
                         <article class="hero-block__box   blue-background">
                             <h3 class="hero-block-title">
                                 Каждый день,
@@ -27,9 +53,14 @@ Study Link - Школа английского языка
                             </h3>
                             <button class="hero-block-btn "><a class="_goto-links " data-goto=".section__registration" href="#">Посмотреть</a></button>
                         </article>
-                    </div>
+                    </div> -->
                 </div>
-                <div id="mapTravelId" class="hero-block__map _anim-items"></div>
+                <div class="hero-block__img _anim-items">
+                    
+                    <img src="{% static 'img/action.webp' %}" alt="">
+                </div>
+                
+                    
             </div>
         </div>
     </div>  
@@ -40,7 +71,7 @@ Study Link - Школа английского языка
                 <div class="slideWithActive__title main-title">
                     Почему нас выбирает ?
                 </div>
-                <div class="swiper-container slide-effects">
+                <div class=" slide-effects swiper-container">
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
                     <!-- Slides -->
@@ -80,7 +111,7 @@ Study Link - Школа английского языка
                                 <i class="fad fa-gift"></i>
                             </div>
                             <p class="slideWithActive__text">
-                                По акции цены от <strong>16.500 KZT</strong> вместо 27500 KZT
+                                По акции цены от <strong>9 990 KZT</strong> вместо 18 000 KZT
                             </p>
                         </div>
                     </div>
