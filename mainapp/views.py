@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Block, Teacher, Title
+from .models import Block, Teacher, Title,ClicksSocial
 from .forms import LeedForm
 import requests
 from django.shortcuts import redirect
@@ -82,7 +82,7 @@ def leedAddView(request):
         print(dataJson) 
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-        res = requests.post('https://studylink.t8s.ru/Api/V2/AddStudyRequest',data=dataJson,headers=headers)
+        res = requests.post('https://studylink.t8s.ru/Api/V2/AddStudyRequest/',data=dataJson,headers=headers)
 
         # print(res)
 
@@ -117,8 +117,84 @@ def leedAddView(request):
         return redirect('thankYouUrl')
 
 
-def thankYouPageView(request):
+def one_page_view(request):
+    return render(request, 'one-page.html')
+
+def thank_you_page_view(request):
 
     return render(request,'thank-you.html')
+
+
+
+def instagram_redirect(request):
+    
+    click_social = ClicksSocial.objects.create(
+        category_name="instagram"
+    )
+    click_social.save()
+
+    TOKEN = settings.TELEGRAM_BOT_AUTH_KEY
+
+    bot = telebot.TeleBot(TOKEN, parse_mode=None)
+
+    message_text = f"""У нас новый клик по сайту №{click_social.id}\nТип клика - {click_social.category_name}"""
+
+    bot.send_message(settings.PRIVATE_GROUPID,message_text)
+
+    return redirect('https://www.instagram.com/studylink_sever_shymkent/?hl=ru')
+
+
+def whatsapp_redirect(request):
+    
+    click_social = ClicksSocial.objects.create(
+        category_name="whatsapp"
+    )
+    click_social.save()
+
+    TOKEN = settings.TELEGRAM_BOT_AUTH_KEY
+
+    bot = telebot.TeleBot(TOKEN, parse_mode=None)
+
+    message_text = f"""У нас новый клик по сайту №{click_social.id}\nТип клика - {click_social.category_name}"""
+
+    bot.send_message(settings.PRIVATE_GROUPID,message_text)
+
+    return redirect('https://wa.me/message/J36DWARSI7ZJP1')
+
+
+def facebook_redirect(request):
+    
+    click_social = ClicksSocial.objects.create(
+        category_name="facebook"
+    )
+    click_social.save()
+
+    TOKEN = settings.TELEGRAM_BOT_AUTH_KEY
+
+    bot = telebot.TeleBot(TOKEN, parse_mode=None)
+
+    message_text = f"""У нас новый клик по сайту №{click_social.id}\nТип клика - {click_social.category_name}"""
+
+    bot.send_message(settings.PRIVATE_GROUPID,message_text)
+
+    return redirect('https://www.facebook.com/study.link.37')
+
+def telegram_redirect(request):
+    
+    click_social = ClicksSocial.objects.create(
+        category_name="telegram"
+    )
+    click_social.save()
+
+    TOKEN = settings.TELEGRAM_BOT_AUTH_KEY
+
+    bot = telebot.TeleBot(TOKEN, parse_mode=None)
+
+    message_text = f"""У нас новый клик по сайту №{click_social.id}\nТип клика - {click_social.category_name}"""
+
+    bot.send_message(settings.PRIVATE_GROUPID,message_text)
+
+    return redirect('https://t.me/studylinksever')
+
 
         

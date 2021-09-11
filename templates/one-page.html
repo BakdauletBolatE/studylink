@@ -1,0 +1,172 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+        *{
+            box-sizing: border-box;
+            font-family: 'Lato', sans-serif;
+        }
+        body{
+            margin:0px;
+            padding:0px;
+        }
+        .one-page-form{    
+            background-color:#434343;
+            height:100vh;
+            overflow:hidden;
+           
+        }
+        .one-page-form-container{
+            color:white;
+            max-width:500px;
+            width:100%;
+            padding:0px 30px;
+            margin: 0 auto;
+        }
+        .one-page-logo-name{
+            margin-top:50px;
+            color:white;
+            text-align: center;
+        }
+        .one-page-title{
+            font-weight: 500;
+            font-size: 18px;
+            text-align: center;
+        }
+        .one-page-form-action{
+            display: flex;
+            margin-top: 50px;
+            flex-direction:column;
+        }
+        .one-page-number-phone-group{
+            display: flex;
+            position: relative;
+        }
+        .one-page-select{
+         
+            padding: 5px;
+            margin-right: 5px;
+            border:none;
+            font-size:14px;
+            border-bottom: 1px solid #6F3DFF;
+        }
+        .one-page-icon{
+            width:50px;
+            top:0;left:0;
+            position: absolute;
+        }
+        .form-input{
+            font-size:14px;
+            padding:15px;
+            border:none;
+            border-bottom: 1px solid #6F3DFF;
+            width: 100%;
+
+        }
+        .form-input:focus{
+            outline: none;
+        }
+        .mt-label{
+            margin-top: 20px;
+        }
+        .mt-form{
+            margin-top: 10px;
+        }
+        .btn{
+            background-color:#FF4242;
+            border:none;
+            font-size:14px;
+            text-transform: uppercase;
+            color:white;
+            position:absolute;
+            bottom:30px;
+            left:50%;
+            transform:translateX(-50%);
+            padding:13px 100px;
+        }
+
+        .social-icons{
+            margin-top:120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .social-icons-item{
+            color:inherit;
+
+            margin-right: 6px;
+        }
+        .social-icons-item img{
+            width:36px;
+        }
+    </style>
+</head>
+<body>
+    <div class="one-page-form">
+        <div class="one-page-form-container">
+            <h2 class="one-page-logo-name">
+               <span></span> Study Link Sever
+            </h2>
+            <h1 class="one-page-title">
+                Регистрация на бесплатный <br>
+                пробный урок 
+            </h1>
+            <form action="{% url 'addLead' %}" class="one-page-form-action" method="post" >
+                {% csrf_token %}
+                <label for="fl mt-label">Имя и Фамилия</label>
+                <input class='form-input form-style-2 mt-form' id="fl" type="text" name="fullName" placeholder="Полное имя">
+                
+                <label for="phone-mask" class="mt-label">Номер телефона</label>
+                <div class="one-page-number-phone-group mt-form">
+                   
+                    <select class="one-page-select" name="" id="">
+                        <option value="+7">
+                            +7
+                        </option>
+                        <input class='form-input form-style-2'  placeholder="(705) 450 14 14" type="text"  name="numberPhone" id="phone-mask">
+                    </select>
+                    
+                </div>
+               
+                <input type="hidden" name="description" value="Заявка на пробный урок">
+                <button class="btn mt-label">Отправить</button>
+            </form>
+
+            <div class="social-icons">
+                <a href="/facebook-re/" class="social-icons-item">
+                    <img src="{% static 'img/icons/facebook.svg' %}"/>
+                </a>
+                <a href="/instagram-re/" class="social-icons-item">
+                    <img src="{% static 'img/icons/instagram.svg' %}"/>
+                </a>
+                <a href="/whatsapp-re/" class="social-icons-item">
+                    <img src="{% static 'img/icons/whatsapp.svg' %}"/>
+                </a>
+                <a href="/telegram-re/" class="social-icons-item">
+                    <img src="{% static 'img/icons/telegram.svg' %}"/>
+                </a>
+                <a href="#" class="social-icons-item">
+                    <img src="{% static 'img/icons/youtube.svg' %}"/>
+                </a>
+            </div>
+        </div>
+       
+    </div>
+    <script src="https://unpkg.com/imask"></script>
+
+    <script>
+        var maskPhoneNumber = document.getElementById('phone-mask');
+        var maskOptions = {
+                mask: '(000)-000-00-00'
+        };
+        var mask = IMask(maskPhoneNumber, maskOptions);
+    </script>
+</body>
+</html>

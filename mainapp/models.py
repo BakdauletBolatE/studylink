@@ -75,6 +75,21 @@ class Leeds(models.Model):
         return f"{self.numberPhone}: {self.fullName}"
 
 
+class ClicksSocial(models.Model):
+
+    types_social = [
+        ("instagram", 'instagram'),
+        ("youtube", 'youtube'),
+        ("telegram", 'telegram'),
+        ("whatsapp", 'whatsapp'),
+        ("facebook", 'facebook'),
+    ]
+    category_name = models.CharField(max_length=255, choices=types_social)
+
+    def __str__(self):
+        return self.category_name
+
+
 
 
     
